@@ -1,0 +1,32 @@
+[package]
+name = "rustconf_2023"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[workspace]
+members = [
+    "projects/hello_threads",
+    "projects/ten_threads",
+    "projects/scope_fail",
+    "projects/scoped_threads",
+    "projects/easy_rayon",
+    "projects/data_race",
+    "projects/data_race_averted",
+    "projects/atomics",
+    "projects/mutexes",
+    "projects/arcs",
+    "projects/arcs_mut",
+    "projects/arcs_interior_mut",
+    "projects/channels",
+    "projects/async_hello",
+    "projects/async_hello_short",
+    "projects/yielding",
+    "projects/spawning",
+    "projects/blocking",
+    "projects/async_channels",
+    "projects/async_select",
+    "projects/mixture",
+    "projects/tcp_server",
+]
