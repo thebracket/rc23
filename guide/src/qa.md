@@ -4,6 +4,8 @@
 
 The sign-in sheet is numbered. Let's be Rustaceans, and use `rand` to select a winner.
 
+> The code is in the `raffle` project.
+
 ```rust,editable
 use rand::Rng;
 

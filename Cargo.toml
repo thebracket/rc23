@@ -29,4 +29,5 @@ members = [
     "projects/async_select",
     "projects/mixture",
     "projects/tcp_server",
+    "projects/raffle",
 ]
