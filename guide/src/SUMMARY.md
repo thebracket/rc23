@@ -1,7 +1,9 @@
 # Summary
 
+[Banner](./banner.md)
 [Welcome](./welcome.md)
 - [Why Fearless?](./why-fearless.md)
+- [Concurrency & Parallelism](./terminology.md)
 - [Creating System Threads](./system-threads.md)
 - [Scoped Threads](./scoped-threads.md)
 - [Rayon: Easy Mode](./rayon-iter.md)
