@@ -21,3 +21,4 @@
 - [TCP Server & Client](./tcp_server.md)
 - [Wrap-Up](./wrap.md)
 - [QA and Raffle](qa.md)
+- [Class Banner](./class-banner.md)
