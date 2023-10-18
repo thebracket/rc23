@@ -1,9 +1,9 @@
-use tokio::task::yield_now;
+use tokio::task;
 
 async fn print(id: i32) {
     for i in 0 .. 10 {
         println!("{id}:{i}");
-        yield_now().await;
+        task::yield_now().await;
     }
 }
 

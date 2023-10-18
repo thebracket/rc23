@@ -1,7 +1,7 @@
 use tokio::sync::mpsc;
 use tokio::sync::broadcast;
+use tokio::time;
 use tokio::select;
-use tokio::time::sleep;
 use std::time::Duration;
 
 #[tokio::main]
@@ -15,7 +15,7 @@ async fn main() {
         tokio::spawn(async move {
             loop {
                 select! {
-                    _ = sleep(Duration::from_secs_f32(0.1)) => my_sender.send(i).await.unwrap(),
+                    _ = time::sleep(Duration::from_secs_f32(0.1)) => my_sender.send(i).await.unwrap(),
                     _ = my_quitter.recv() => break,
                 }
             }
@@ -28,5 +28,5 @@ async fn main() {
         println!("{n}");
     }
     send_quit.send(0).unwrap();
-    sleep(Duration::from_secs(1)).await;
+    time::sleep(Duration::from_secs(1)).await;
 }

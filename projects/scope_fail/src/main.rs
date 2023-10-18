@@ -1,4 +1,4 @@
-use std::thread::{spawn, JoinHandle};
+use std::thread::{self, JoinHandle};
 
 fn main() {
     const NUM_THREADS: usize = 4;
@@ -6,7 +6,7 @@ fn main() {
     let chunks = numbers.chunks(NUM_THREADS);
     let mut handles: Vec<JoinHandle<u32>> = Vec::new();
     for chunk in chunks {
-        handles.push(spawn(move || {
+        handles.push(thread::spawn(move || {
             chunk.iter().sum()
         }));
     }

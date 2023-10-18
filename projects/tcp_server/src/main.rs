@@ -3,9 +3,8 @@ use tokio::{
     io::{AsyncReadExt, AsyncWriteExt},
     net::TcpListener,
     net::TcpStream,
-    spawn,
     select,
-    time::sleep
+    time
 };
 use anyhow::Result;
 
@@ -70,23 +69,23 @@ async fn main() -> Result<()> {
     let (tx, _rx) = tokio::sync::broadcast::channel::<()>(1);
 
     // Start the TCP server
-    spawn(server_loop(tx.subscribe()));
+    tokio::spawn(server_loop(tx.subscribe()));
 
     // Short pause to let the playground catch up
-    sleep(Duration::from_millis(100)).await;
+    time::sleep(Duration::from_millis(100)).await;
 
     // Spawn several TCP clients
     for _ in 0..3 {
-        spawn(tcp_client());
+        tokio::spawn(tcp_client());
     }
 
     // Sleep
-    sleep(Duration::from_secs(1)).await;
+    time::sleep(Duration::from_secs(1)).await;
 
     // Send quit
     tx.send(()).unwrap();
 
     // Short pause to let the playground catch up
-    sleep(Duration::from_millis(100)).await;
+    time::sleep(Duration::from_millis(100)).await;
     Ok(())
 }
